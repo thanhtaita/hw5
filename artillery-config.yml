@@ -1,0 +1,18 @@
+config:
+  target: 'http://localhost:8080'
+  phases:
+    - duration: 5
+      arrivalRate: 200
+      rampTo: 250
+      name: 'Ramp-up slow 200 to 250 users over 5 seconds'
+    - duration: 5
+      arrivalRate: 250
+      rampTo: 500
+      name: 'Ramp-up from 250 to 500 users over 5 seconds'
+    - duration: 10
+      arrivalRate: 500
+      name: 'Sustained 500 users for 10 seconds'
+scenarios:
+  - flow:
+      - get:
+          url: '/carts/3'
